@@ -1,93 +1,24 @@
-# Yash Ghadiya
 
-📧 **Email:** yash36895@gmail.com  
-📍 **Location:** Oshawa, Ontario  
+## 🌐 Socials:
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/godfather7608) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/ https://www.linkedin.com/in/yash-ghadiya/.) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/ yash Ghadiya) 
 
-## Professional Summary
+# 💻 Tech Stack:
+![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![PowerShell](https://img.shields.io/badge/PowerShell-%235391FE.svg?style=for-the-badge&logo=powershell&logoColor=white) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black) ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Adobe Premiere Pro](https://img.shields.io/badge/Adobe%20Premiere%20Pro-9999FF.svg?style=for-the-badge&logo=Adobe%20Premiere%20Pro&logoColor=white) ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) ![Adobe Acrobat Reader](https://img.shields.io/badge/Adobe%20Acrobat%20Reader-EC1C24.svg?style=for-the-badge&logo=Adobe%20Acrobat%20Reader&logoColor=white) ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white) ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=Monkscenter&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=Monkscenter&theme=dark&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=Monkscenter&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
 
-Results-driven and adaptable Computer Programmer with a diverse skill set encompassing COBOL (Mainframe Development), Python, C++, C#, CSS, PHP, HTML, SQL, and Linux. 
-Despite limited professional experience, equipped with a solid understanding of software development principles, and methodologies, and a keen ability to learn quickly. 
-Demonstrates proficiency in COBOL for Mainframe development, showcasing an understanding of legacy systems alongside modern programming languages such as Python, C++, C#, 
-and web development technologies including CSS, PHP, and HTML. Familiarity with SQL for database management and Linux for system environments. Adept at collaborating in cross-functional teams, 
-effectively communicating ideas, and contributing to project goals. Strong problem-solving skills coupled with a commitment to staying abreast of emerging technologies, ensuring the ability to adapt and innovate within dynamic development environments. Passionate about leveraging a diverse skill set to contribute to the creation of robust and scalable software solutions. 
-Eager to apply theoretical knowledge in a practical, real-world setting, and actively seeking opportunities for professional development and growth in the field of computer programming.
+## 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=Monkscenter&theme=radical&no-frame=false&no-bg=true&margin-w=4)
 
-## Work Experience
+### ✍️ Random Dev Quote
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
-**Freelancer**  
-*Oshawa*  
-Worked as a freelancer for 6 months, assisting a restaurant in Oshawa in building a menu, adding new items, and establishing a social media presence.
+### 🔝 Top Contributed Repo
+![](https://github-contributor-stats.vercel.app/api?username=Monkscenter&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
-## Education
+---
+[![](https://visitcount.itsvg.in/api?id=Monkscenter&icon=0&color=0)](https://visitcount.itsvg.in)
 
-**Computer Programming**  
-*Durham College*
-
-## Skills
-
-### Programming Languages
-- COBOL (Mainframe Development)
-- Python
-- C++
-- C#
-
-### Web Development
-- CSS
-- PHP
-- HTML
-
-### Database Management
-- SQL
-
-### Operating Systems
-- Linux
-
-### Collaboration and Communication
-- Cross-functional teamwork
-- Effective verbal and written communication
-- Contribution to project goals
-
-### Problem-solving and Adaptability
-- Strong analytical skills
-- Quick learner
-- Adaptability to emerging technologies
-
-### Software Development Practices
-- Understanding of SDLC
-- Methodical approach to development
-
-### Version Control
-- Familiarity with Git
-
-### Quality Assurance
-- Testing and debugging code
-- Ensuring software performance and functionality
-
-### Documentation
-- Detail-oriented documentation of code and processes
-
-## Professional Credentials
-
-- Security Guard License
-
-## Awards and Honours
-
-- Ethical Hacking Certification course (2023)
-  - Received from the Programming Hub through Google Developers Launchpad. While this course primarily covered theoretical aspects of ethical hacking, I am currently working towards advanced certifications to enhance practical skills in this area.
-- Introduction to Cybersecurity by Cisco (2023)
-  - Gained foundational knowledge in cybersecurity principles, including network security, encryption, and risk management.
-- Network Basics by CISCO ACADEMY (2023)
-  - Completed coursework covering fundamental networking concepts, including OSI model, TCP/IP protocols, and network devices.
-- Threat Analysis by Cisco (2023)
-  - Explored techniques and strategies for identifying and mitigating cybersecurity threats.
-
-## About My Learning
-
-I am currently working on obtaining certificates in cybersecurity. Completed coursework in computer programming analysis, with a focus on analysis in the final semester.
-
-## Contact Me
-
-Feel free to reach out to me via email at yash36895@gmail.com or connect with me on LinkedIn at https://www.linkedin.com/in/yash-ghadiya/.
-
-
-
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
