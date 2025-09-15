@@ -1,0 +1,26 @@
+GarudaPhoenix/
+├── README.md                    # Main project description
+├── docs/
+│   ├── development-roadmap.md   # Detailed roadmap with timelines
+│   ├── flowchart.mermaid       # Save the flowchart code here
+│   ├── architecture.md         # System architecture decisions
+│   ├── build-instructions.md   # How to build and test
+│   └── learning-resources.md   # Useful links and books
+├── src/
+│   ├── boot/                   # Bootloader code
+│   ├── kernel/                 # Kernel source code
+│   ├── drivers/                # Device drivers
+│   ├── fs/                     # File system implementation
+│   ├── mm/                     # Memory management
+│   ├── lib/                    # Standard library
+│   └── userspace/              # User applications
+├── tools/
+│   ├── build-toolchain.sh     # Script to set up cross-compiler
+│   ├── create-iso.sh          # Create bootable ISO
+│   └── qemu-test.sh           # QEMU testing script
+├── tests/
+│   ├── unit/                   # Unit tests
+│   └── integration/            # Integration tests
+├── Makefile                    # Build system
+├── .gitignore                  # Git ignore file
+└── LICENSE                     # Project license

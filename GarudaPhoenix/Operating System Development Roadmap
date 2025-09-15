@@ -1,0 +1,109 @@
+graph TD
+    A[🔥 START: GarudaPhoenix Development] --> B[📚 PHASE 1: Learning Foundation]
+    
+    %% Phase 1 - Learning (Parallel)
+    B --> B1[Assembly Language<br/>⏱️ 2-3 months]
+    B --> B2[C/C++ Systems Programming<br/>⏱️ 3-4 months]
+    B --> B3[Computer Architecture<br/>⏱️ 2-3 months]
+    B --> B4[OS Theory & Concepts<br/>⏱️ 2-3 months]
+    
+    %% Phase 2 - Development Environment
+    B1 --> C[⚙️ PHASE 2: Dev Environment]
+    B2 --> C
+    B3 --> C
+    B4 --> C
+    
+    C --> C1[Cross-compiler Setup<br/>⏱️ 1-2 weeks]
+    C --> C2[QEMU & Testing Tools<br/>⏱️ 1-2 weeks]
+    C --> C3[Basic Bootloader<br/>⏱️ 3-4 weeks]
+    
+    %% Phase 3 - Kernel Core
+    C1 --> D[🧠 PHASE 3: Kernel Core]
+    C2 --> D
+    C3 --> D
+    
+    D --> D1[Kernel Entry Point<br/>⏱️ 2-3 weeks]
+    D --> D2[Memory Management<br/>⏱️ 3-4 months]
+    D --> D3[Interrupt Handling<br/>⏱️ 2-3 months]
+    D --> D4[Process Management<br/>⏱️ 4-6 months]
+    D --> D5[Task Scheduler<br/>⏱️ 3-4 months]
+    
+    %% Phase 4 & 5 - System Services & User Space (Parallel)
+    D1 --> E[🔧 PHASE 4: System Services]
+    D2 --> F[👤 PHASE 5: User Space]
+    D3 --> E
+    D4 --> F
+    D5 --> E
+    D5 --> F
+    
+    E --> E1[File System<br/>⏱️ 6-8 months]
+    E --> E2[Device Drivers<br/>⏱️ 4-6 months]
+    E --> E3[Network Stack<br/>⏱️ 6-12 months]
+    E --> E4[System Calls<br/>⏱️ 2-3 months]
+    
+    F --> F1[Shell/Terminal<br/>⏱️ 2-3 months]
+    F --> F2[Standard Library<br/>⏱️ 6-8 months]
+    F --> F3[IPC Mechanisms<br/>⏱️ 3-4 months]
+    
+    %% Phase 6 & 7 - GUI & Hardware (Parallel)
+    E1 --> G[🖥️ PHASE 6: Graphics & GUI]
+    E2 --> H[🔌 PHASE 7: Hardware Support]
+    E3 --> G
+    E4 --> H
+    F1 --> G
+    F2 --> G
+    F3 --> H
+    
+    G --> G1[Graphics Drivers<br/>⏱️ 6-8 months]
+    G --> G2[Window Manager<br/>⏱️ 8-12 months]
+    G --> G3[Desktop Environment<br/>⏱️ 12-18 months]
+    G --> G4[UI Framework<br/>⏱️ 8-12 months]
+    
+    H --> H1[USB Support<br/>⏱️ 4-6 months]
+    H --> H2[Audio Drivers<br/>⏱️ 3-4 months]
+    H --> H3[Storage Drivers<br/>⏱️ 4-6 months]
+    H --> H4[Network Hardware<br/>⏱️ 4-6 months]
+    
+    %% Phase 8 & 9 - Applications & Distribution (Parallel)
+    G1 --> I[📱 PHASE 8: Applications]
+    G2 --> I
+    G3 --> J[📦 PHASE 9: Distribution]
+    G4 --> I
+    H1 --> I
+    H2 --> J
+    H3 --> I
+    H4 --> J
+    
+    I --> I1[Text Editor<br/>⏱️ 2-3 months]
+    I --> I2[File Manager<br/>⏱️ 3-4 months]
+    I --> I3[Web Browser<br/>⏱️ 12-24 months]
+    I --> I4[Development Tools<br/>⏱️ 8-12 months]
+    
+    J --> J1[Package Manager<br/>⏱️ 4-6 months]
+    J --> J2[OS Installer<br/>⏱️ 3-4 months]
+    J --> J3[Documentation<br/>⏱️ 2-3 months]
+    J --> J4[Testing Framework<br/>⏱️ Ongoing]
+    
+    %% Final Goal
+    I1 --> K[🎉 COMPLETE OS<br/>5-10+ Years Total]
+    I2 --> K
+    I3 --> K
+    I4 --> K
+    J1 --> K
+    J2 --> K
+    J3 --> K
+    J4 --> K
+    
+    %% Phase Styling
+    style A fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style B fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
+    style C fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style D fill:#e8f5e8,stroke:#2e7d32,stroke-width:2px
+    style E fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    style F fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style G fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style H fill:#f1f8e9,stroke:#388e3c,stroke-width:2px
+    style I fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style J fill:#fce4ec,stroke:#d32f2f,stroke-width:2px
+    style K fill:#c8e6c9,stroke:#1b5e20,stroke-width:4px
+    
