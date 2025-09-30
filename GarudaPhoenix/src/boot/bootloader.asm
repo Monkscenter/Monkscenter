@@ -21,28 +21,30 @@ start:
     mov si, welcome_msg
     call print_string
     
-    mov si, tagline_msg
+    ; Load kernel into memory
+    mov ah, 0x02        ; BIOS disk service - read sectors
+    mov al, 1           ; Number of sectors to read
+    mov ch, 0           ; Cylinder number (0 for first cylinder)
+    mov cl, 2           ; Sector number (2, as 1 is used by the bootloader)
+    mov dh, 0           ; Head number (0 for first head)
+    mov dl, 0x00        ; Drive number (0x00 for first floppy disk)
+    mov bx, 0x1000      ; Load address for the kernel
+    int 0x13            ; Call BIOS disk service
+    jc error            ; Jump to error handler if carry flag is set
+
+    ; Transition to protected mode
+    call enable_protected_mode
+
+    ; Transition to long mode
+    call enable_long_mode
+
+    ; Jump to kernel
+    jmp 0x1000
+
+error:
+    mov si, error_msg
     call print_string
-    
-    mov si, loading_msg
-    call print_string
-    
-    ; Simple loading animation
-    mov cx, 5           ; Show 5 dots
-loading_loop:
-    mov si, dot_msg
-    call print_string
-    call delay
-    loop loading_loop
-    
-    mov si, newline
-    call print_string
-    
-    mov si, success_msg
-    call print_string
-    
-    ; System is "running" - infinite loop (for now)
-    jmp $
+    hlt
 
 ; Function: Print string
 ; Input: SI = pointer to null-terminated string
@@ -53,38 +55,39 @@ print_string:
     cmp al, 0           ; Check if end of string
     je .done
     mov ah, 0x0e        ; BIOS teletype function
-    mov bx, 0x0007      ; Page 0, light gray on black
     int 0x10            ; BIOS video interrupt
     jmp .loop
 .done:
     popa                ; Restore all registers
     ret
 
-; Simple delay function
-delay:
-    pusha
-    mov cx, 0xffff      ; Delay counter
-.delay_loop:
-    nop
-    loop .delay_loop
-    popa
+enable_protected_mode:
+    ; Set up GDT and enable protected mode
+    ret
+
+enable_long_mode:
+    ; Set up paging and enable long mode
     ret
 
 ; Our epic boot messages
 welcome_msg db '                    *** GARUDAPHOENIX OS ***', 0x0d, 0x0a
             db '                  Rise. Transform. Soar.', 0x0d, 0x0a, 0x0d, 0x0a, 0
 
-tagline_msg db 'From the ashes of legacy systems, a new OS is born!', 0x0d, 0x0a
-            db 'Powered by the wings of Garuda, reborn like the Phoenix.', 0x0d, 0x0a, 0x0d, 0x0a, 0
-
-loading_msg db 'Initializing GarudaPhoenix Core', 0
-
-dot_msg     db '.', 0
-newline     db 0x0d, 0x0a, 0
-success_msg db 0x0d, 0x0a, 'GarudaPhoenix OS - First Boot Successful! ', 0x0d, 0x0a
-            db 'The Phoenix has risen! The Garuda soars!', 0x0d, 0x0a
-            db 'System ready for kernel initialization...', 0x0d, 0x0a, 0
+error_msg   db 'Error: Failed to load kernel!', 0x0d, 0x0a, 0
 
 ; Boot sector signature (REQUIRED - tells BIOS this is bootable)
 times 510-($-$$) db 0   ; Pad with zeros to byte 510
 dw 0xaa55               ; Boot signature (magic number)
+
+; Kernel main function (placeholder)
+section .text
+kernel_main:
+    ; Welcome message in kernel
+    mov si, kernel_msg
+    call print_string
+    
+    ; Infinite loop (hang the system - no kernel yet)
+    jmp $
+
+; Kernel message
+kernel_msg db 'Welcome to GarudaPhoenix Kernel!', 0x0d, 0x0a, 0

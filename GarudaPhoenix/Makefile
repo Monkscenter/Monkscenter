@@ -2,86 +2,74 @@
 # "Rise. Transform. Soar."
 
 # Directories
-SRC_DIR = src
-BOOT_DIR = $(SRC_DIR)/boot
-BUILD_DIR = build
-ISO_DIR = $(BUILD_DIR)/iso
+SRC_DIR := src
+KERNEL_DIR := $(SRC_DIR)/kernel
+BUILD_DIR := build
+ISO_DIR := $(BUILD_DIR)/iso
+GRUB_DIR := $(ISO_DIR)/boot/grub
 
 # Tools
-ASM = nasm
-QEMU = qemu-system-x86_64
+CC := gcc
+LD := ld
+AS := gcc
+QEMU := qemu-system-x86_64
+GRUB_MKRESCUE := grub-mkrescue
+XORRISO := xorriso
 
 # Flags
-ASM_FLAGS = -f bin
+CFLAGS := -m64 -ffreestanding -O2 -g -fno-builtin -fno-stack-protector -Wall -Wextra
+LDFLAGS := -nostdlib
+LDF_SCRIPT := $(KERNEL_DIR)/linker.ld
 
 # Targets
-BOOTLOADER = $(BUILD_DIR)/bootloader.bin
-FLOPPY_IMG = $(BUILD_DIR)/garudaphoenix.img
+KERNEL_OBJ := $(BUILD_DIR)/kernel.o $(BUILD_DIR)/entry.o
+KERNEL_ELF := $(BUILD_DIR)/kernel.elf
+ISO := $(BUILD_DIR)/garudaphoenix.iso
 
-# Colors for output
-RED = \033[0;31m
-GREEN = \033[0;32m
-YELLOW = \033[1;33m
-BLUE = \033[0;34m
-PURPLE = \033[0;35m
-CYAN = \033[0;36m
-NC = \033[0m # No Color
-
-.PHONY: all clean run setup test info
+.PHONY: all clean setup iso run
 
 # Default target
-all: info setup $(BOOTLOADER) $(FLOPPY_IMG)
-	@echo "$(GREEN)🔥 GarudaPhoenix OS built successfully! The Phoenix is ready to rise! 🦅$(NC)"
-
-# Show project info
-info:
-	@echo "$(PURPLE)╔════════════════════════════════════════╗$(NC)"
-	@echo "$(PURPLE)║        GARUDAPHOENIX OS BUILD          ║$(NC)"
-	@echo "$(PURPLE)║      Rise. Transform. Soar.            ║$(NC)"
-	@echo "$(PURPLE)╚════════════════════════════════════════╝$(NC)"
-	@echo ""
+all: setup $(KERNEL_ELF) iso
+	@echo "✅ GarudaPhoenix x86_64 built: $(ISO)"
 
 # Create build directories
 setup:
 	@mkdir -p $(BUILD_DIR)
-	@mkdir -p $(ISO_DIR)
-	@echo "$(YELLOW)📁 Build directories created$(NC)"
+	@mkdir -p $(GRUB_DIR)
 
-# Build bootloader
-$(BOOTLOADER): $(BOOT_DIR)/bootloader.asm
-	@echo "$(BLUE)🔧 Assembling GarudaPhoenix bootloader...$(NC)"
-	$(ASM) $(ASM_FLAGS) $< -o $@
-	@echo "$(GREEN)✅ Bootloader compiled: $(BOOTLOADER)$(NC)"
+$(BUILD_DIR)/kernel.o: $(KERNEL_DIR)/kernel.c
+	@echo "🔧 Compiling kernel.c"
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# Create bootable floppy image
-$(FLOPPY_IMG): $(BOOTLOADER)
-	@echo "$(BLUE)💾 Creating bootable floppy image...$(NC)"
-	dd if=/dev/zero of=$@ bs=1024 count=1440 2>/dev/null || echo "" > $@ && truncate -s 1440K $@
-	dd if=$(BOOTLOADER) of=$@ conv=notrunc 2>/dev/null
-	@echo "$(GREEN)✅ Bootable image created: $(FLOPPY_IMG)$(NC)"
+$(BUILD_DIR)/entry.o: $(KERNEL_DIR)/entry.S
+	@echo "🔧 Assembling entry.S"
+	$(AS) $(CFLAGS) -c $< -o $@
+
+$(KERNEL_ELF): $(KERNEL_OBJ)
+	@echo "🔗 Linking kernel ELF"
+	$(LD) $(LDFLAGS) -T $(LDF_SCRIPT) -o $@ $(KERNEL_OBJ)
+
+iso: $(KERNEL_ELF)
+	@echo "📦 Building ISO with GRUB"
+	cp $(KERNEL_ELF) $(ISO_DIR)/boot/kernel.elf
+	cat > $(GRUB_DIR)/grub.cfg <<EOF
+set timeout=3
+set default=0
+menuentry "GarudaPhoenix x86_64" {
+    insmod elf
+    multiboot2 /boot/kernel.elf
+    boot
+}
+EOF
+	$(GRUB_MKRESCUE) -o $(ISO) $(ISO_DIR) 2>/dev/null || (echo "grub-mkrescue failed — ensure grub and xorriso are installed" && false)
+	@echo "✅ ISO created: $(ISO)"
 
 # Test in QEMU
-run: $(FLOPPY_IMG)
-	@echo "$(CYAN)🚀 Starting GarudaPhoenix in QEMU...$(NC)"
-	@echo "$(YELLOW)Press Ctrl+Alt+G to release mouse, Ctrl+C to quit$(NC)"
-	$(QEMU) -fda $(FLOPPY_IMG) -boot a
-
-# Quick test (no GUI)
-test: $(FLOPPY_IMG)
-	@echo "$(CYAN)🧪 Testing GarudaPhoenix (no GUI)...$(NC)"
-	$(QEMU) -fda $(FLOPPY_IMG) -boot a -nographic -monitor none -serial stdio
+run: iso
+	@echo "🚀 Booting ISO in QEMU"
+	$(QEMU) -cdrom $(ISO) -m 512M
 
 # Clean build files
 clean:
-	@echo "$(RED)🧹 Cleaning build files...$(NC)"
+	@echo "🧹 Cleaning build"
 	rm -rf $(BUILD_DIR)
-	@echo "$(GREEN)✅ Build directory cleaned$(NC)"
-
-# Help target
-help:
-	@echo "$(PURPLE)GarudaPhoenix OS - Available targets:$(NC)"
-	@echo "  $(GREEN)all$(NC)     - Build everything"
-	@echo "  $(GREEN)run$(NC)     - Build and run in QEMU (with GUI)"
-	@echo "  $(GREEN)test$(NC)    - Build and run in QEMU (no GUI)"
-	@echo "  $(GREEN)clean$(NC)   - Clean all build files"
-	@echo "  $(GREEN)help$(NC)    - Show this help"
